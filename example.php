@@ -31,4 +31,4 @@ class sample {
 }
 
 // Start the app
-glue::stick($urls);
+glue::superglue($urls);

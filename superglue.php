@@ -12,7 +12,7 @@
  * Enhanced by: Topsitemakers
  * http://www.topsitemakers.com/
  */
-class glue {
+class superglue {
 
   static function stick ($urls) {
 
