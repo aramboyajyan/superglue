@@ -8,6 +8,10 @@ An enhanced version of [Glue](http://github.com/jtopjian/gluephp):
 
 Shipped with a very simple <code>.htaccess</code> for SEO URLs.
 
+### Todo
+
+Call classes automatically if the URLs are not defined. Order: <code>class/method/arguments</code>.
+
 ### Credits
 
 [Glue](http://github.com/jtopjian/gluephp)

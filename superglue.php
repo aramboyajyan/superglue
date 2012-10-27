@@ -24,7 +24,7 @@ class superglue {
     else {
       $path = $_SERVER['REQUEST_URI'];
     }
-    $url_not_found = true;
+    $url_not_found = TRUE;
     krsort($urls);
 
     foreach ($urls as $regex => $class) {
@@ -44,16 +44,16 @@ class superglue {
       $regex = str_replace('/', '\/', $regex);
       $regex = '^' . $regex . '\/?$';
       if (preg_match("/$regex/i", $path, $matches)) {
-        $url_not_found = false;
+        $url_not_found = FALSE;
         // Handle calls
-        $class_not_found = true;
-        $method_not_found = true;
+        $class_not_found = TRUE;
+        $method_not_found = TRUE;
         if (is_array($class)) {
           if (class_exists($class[0])) {
             $obj = new $class[0];
             if (method_exists($obj, $class[1])) {
-              $class_not_found = false;
-              $method_not_found = false;
+              $class_not_found = FALSE;
+              $method_not_found = FALSE;
               $method = $class[1];
             }
           }
@@ -62,8 +62,8 @@ class superglue {
           if (class_exists($class)) {
             $obj = new $class;
             if (method_exists($obj, $method) || method_exists($obj, 'index')) {
-              $class_not_found = false;
-              $method_not_found = false;
+              $class_not_found = FALSE;
+              $method_not_found = FALSE;
               $method = method_exists($obj, 'index') ? 'index' : $method;
             }
           }
@@ -83,12 +83,15 @@ class superglue {
             case 4:
               $obj->$method($matches[1], $matches[2], $matches[3], $matches[4]);
               break;
+            case 5:
+              $obj->$method($matches[1], $matches[2], $matches[3], $matches[4], $matches[5]);
+              break;
             default:
               $obj->$method($matches);
               break;
           }
         }
-        if ($class_not_found) throw new Exception("Class, $class, not found.");
+        if ($class_not_found)  throw new Exception("Class, $class, not found.");
         if ($method_not_found) throw new BadMethodCallException("Method, $method, not supported.");
         break;
       }
