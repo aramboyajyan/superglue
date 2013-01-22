@@ -1,0 +1,6 @@
+{
+  "name": "topsitemakers/superglue",
+  "require": {
+    "php": ">=5.2.0"
+  }
+}

@@ -8,6 +8,10 @@ Initial release.
 
 Added RESTful example.
 
+### January 22, 2013
+
+Addded `composer.json` file.
+
 <hr>
 
 By: [topsitemakers.com](http://www.topsitemakers.com).
